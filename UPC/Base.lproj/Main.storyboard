@@ -1,14 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIDisplay-Light.otf">
+            <string>SFUIDisplay-Light</string>
+        </array>
+        <array key="SFUIDisplay-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Data View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DataViewController" customModule="UPC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +30,423 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c1z-Yw-FKE" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                <rect key="frame" x="24" y="148" width="155.5" height="155.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scale" translatesAutoresizingMaskIntoConstraints="NO" id="gB8-C6-omH">
+                                        <rect key="frame" x="-3" y="-2" width="162" height="163"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bz-Vw-wcM">
+                                        <rect key="frame" x="23.5" y="69.5" width="7.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0gk-DX-adP">
+                                        <rect key="frame" x="71" y="21.5" width="14" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="41" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H10-TZ-5aS">
+                                        <rect key="frame" x="125" y="69.5" width="12.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="H10-TZ-5aS" firstAttribute="leading" secondItem="gB8-C6-omH" secondAttribute="trailing" constant="-34" id="16E-5V-XfP"/>
+                                    <constraint firstItem="gB8-C6-omH" firstAttribute="leading" secondItem="4bz-Vw-wcM" secondAttribute="trailing" constant="-34" id="63B-aM-9F5"/>
+                                    <constraint firstItem="0gk-DX-adP" firstAttribute="centerX" secondItem="gB8-C6-omH" secondAttribute="centerX" id="DF1-9L-2Wm"/>
+                                    <constraint firstAttribute="trailing" secondItem="gB8-C6-omH" secondAttribute="trailing" constant="-3" id="K25-3W-GdO"/>
+                                    <constraint firstItem="gB8-C6-omH" firstAttribute="top" secondItem="0gk-DX-adP" secondAttribute="bottom" constant="-38" id="Kbh-fr-f5b"/>
+                                    <constraint firstItem="gB8-C6-omH" firstAttribute="top" secondItem="4bz-Vw-wcM" secondAttribute="bottom" constant="-86" id="Spa-NM-3Ua"/>
+                                    <constraint firstItem="gB8-C6-omH" firstAttribute="top" secondItem="H10-TZ-5aS" secondAttribute="bottom" constant="-86" id="XOP-06-T4m"/>
+                                    <constraint firstItem="gB8-C6-omH" firstAttribute="leading" secondItem="c1z-Yw-FKE" secondAttribute="leading" constant="-3" id="oKh-Qw-AKo"/>
+                                    <constraint firstAttribute="width" secondItem="c1z-Yw-FKE" secondAttribute="height" multiplier="1:1" id="oxa-cQ-xrn"/>
+                                    <constraint firstAttribute="bottom" secondItem="gB8-C6-omH" secondAttribute="bottom" constant="-5" id="rCm-Ym-O6d"/>
+                                    <constraint firstItem="gB8-C6-omH" firstAttribute="top" secondItem="c1z-Yw-FKE" secondAttribute="top" constant="-2" id="xAN-qz-cDp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewStyle">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="135"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endAngle">
+                                        <real key="value" value="405"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                        <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                        <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KlG-u0-dK5" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                <rect key="frame" x="195.5" y="148" width="155.5" height="155.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scale" translatesAutoresizingMaskIntoConstraints="NO" id="Rll-0t-TSW">
+                                        <rect key="frame" x="-3" y="-2" width="162" height="163"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsG-c0-2M9">
+                                        <rect key="frame" x="18" y="69" width="13" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kgs-xd-Bok">
+                                        <rect key="frame" x="70.5" y="21" width="15" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="82" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arA-9q-5WL">
+                                        <rect key="frame" x="125" y="69" width="14" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Rll-0t-TSW" firstAttribute="top" secondItem="Kgs-xd-Bok" secondAttribute="bottom" constant="-38" id="1aj-No-QFh"/>
+                                    <constraint firstItem="Rll-0t-TSW" firstAttribute="leading" secondItem="MsG-c0-2M9" secondAttribute="trailing" constant="-34" id="8gW-er-0zx"/>
+                                    <constraint firstItem="Rll-0t-TSW" firstAttribute="top" secondItem="MsG-c0-2M9" secondAttribute="bottom" constant="-86" id="DCx-qc-GEp"/>
+                                    <constraint firstItem="Rll-0t-TSW" firstAttribute="top" secondItem="arA-9q-5WL" secondAttribute="bottom" constant="-86" id="Dvd-uV-1Qk"/>
+                                    <constraint firstItem="arA-9q-5WL" firstAttribute="leading" secondItem="Rll-0t-TSW" secondAttribute="trailing" constant="-34" id="XBT-fI-NTu"/>
+                                    <constraint firstItem="Rll-0t-TSW" firstAttribute="top" secondItem="KlG-u0-dK5" secondAttribute="top" constant="-2" id="bgC-gu-CfN"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rll-0t-TSW" secondAttribute="trailing" constant="-3" id="tTH-hf-q8Q"/>
+                                    <constraint firstItem="Kgs-xd-Bok" firstAttribute="centerX" secondItem="Rll-0t-TSW" secondAttribute="centerX" id="wnn-2W-RHs"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rll-0t-TSW" secondAttribute="bottom" constant="-5" id="yeo-Na-DZI"/>
+                                    <constraint firstItem="Rll-0t-TSW" firstAttribute="leading" secondItem="KlG-u0-dK5" secondAttribute="leading" constant="-3" id="ysK-km-lP2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewStyle">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="135"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endAngle">
+                                        <real key="value" value="405"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                        <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                        <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lwB-Fd-c6S" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                <rect key="frame" x="24" y="368.5" width="155.5" height="155.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scale" translatesAutoresizingMaskIntoConstraints="NO" id="zKj-XM-1d5">
+                                        <rect key="frame" x="-3" y="-2" width="162" height="163"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X22-Hb-aXm">
+                                        <rect key="frame" x="20" y="69" width="11" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8i-6A-WKm">
+                                        <rect key="frame" x="71" y="21" width="14" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="53" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndW-SY-8sH">
+                                        <rect key="frame" x="125" y="69" width="14" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="zKj-XM-1d5" secondAttribute="bottom" constant="-5" id="2kf-xp-i6p"/>
+                                    <constraint firstAttribute="trailing" secondItem="zKj-XM-1d5" secondAttribute="trailing" constant="-3" id="CUV-Wt-wD8"/>
+                                    <constraint firstItem="zKj-XM-1d5" firstAttribute="leading" secondItem="X22-Hb-aXm" secondAttribute="trailing" constant="-34" id="Fje-D3-2PE"/>
+                                    <constraint firstItem="zKj-XM-1d5" firstAttribute="top" secondItem="ndW-SY-8sH" secondAttribute="bottom" constant="-86" id="Ml3-UZ-UJm"/>
+                                    <constraint firstItem="zKj-XM-1d5" firstAttribute="top" secondItem="X22-Hb-aXm" secondAttribute="bottom" constant="-86" id="Ome-fH-a1a"/>
+                                    <constraint firstItem="zKj-XM-1d5" firstAttribute="top" secondItem="A8i-6A-WKm" secondAttribute="bottom" constant="-38" id="Xeg-k0-1Yi"/>
+                                    <constraint firstItem="zKj-XM-1d5" firstAttribute="top" secondItem="lwB-Fd-c6S" secondAttribute="top" constant="-2" id="aTm-SR-EcW"/>
+                                    <constraint firstItem="zKj-XM-1d5" firstAttribute="leading" secondItem="lwB-Fd-c6S" secondAttribute="leading" constant="-3" id="fL4-jF-jMD"/>
+                                    <constraint firstItem="A8i-6A-WKm" firstAttribute="centerX" secondItem="zKj-XM-1d5" secondAttribute="centerX" id="m4d-jS-j4P"/>
+                                    <constraint firstItem="ndW-SY-8sH" firstAttribute="leading" secondItem="zKj-XM-1d5" secondAttribute="trailing" constant="-34" id="yEK-cb-u81"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewStyle">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="135"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endAngle">
+                                        <real key="value" value="405"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                        <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                        <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQp-zv-gVm" customClass="UICircularProgressRingView" customModule="UICircularProgressRing">
+                                <rect key="frame" x="195.5" y="368.5" width="155.5" height="155.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scale" translatesAutoresizingMaskIntoConstraints="NO" id="8DA-9N-bJg">
+                                        <rect key="frame" x="-3" y="-2" width="161.5" height="162.5"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="272-nU-yyc">
+                                        <rect key="frame" x="24" y="69" width="7" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPo-UH-FLs">
+                                        <rect key="frame" x="74" y="21" width="8" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoq-WO-oVA">
+                                        <rect key="frame" x="124.5" y="69" width="13" height="15"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="8DA-9N-bJg" firstAttribute="leading" secondItem="272-nU-yyc" secondAttribute="trailing" constant="-34" id="1vY-mg-hJp"/>
+                                    <constraint firstItem="8DA-9N-bJg" firstAttribute="leading" secondItem="RQp-zv-gVm" secondAttribute="leading" constant="-3" id="4vj-Nl-qtC"/>
+                                    <constraint firstAttribute="trailing" secondItem="8DA-9N-bJg" secondAttribute="trailing" constant="-3" id="IaO-Vg-gV0"/>
+                                    <constraint firstItem="Aoq-WO-oVA" firstAttribute="leading" secondItem="8DA-9N-bJg" secondAttribute="trailing" constant="-34" id="NbB-ge-N1f"/>
+                                    <constraint firstItem="8DA-9N-bJg" firstAttribute="top" secondItem="RQp-zv-gVm" secondAttribute="top" constant="-2" id="VVm-XM-MbB"/>
+                                    <constraint firstAttribute="bottom" secondItem="8DA-9N-bJg" secondAttribute="bottom" constant="-5" id="gKt-oL-JQv"/>
+                                    <constraint firstItem="8DA-9N-bJg" firstAttribute="top" secondItem="hPo-UH-FLs" secondAttribute="bottom" constant="-38" id="m1n-iX-VHN"/>
+                                    <constraint firstItem="hPo-UH-FLs" firstAttribute="centerX" secondItem="8DA-9N-bJg" secondAttribute="centerX" id="u9J-oz-k4f"/>
+                                    <constraint firstItem="8DA-9N-bJg" firstAttribute="top" secondItem="Aoq-WO-oVA" secondAttribute="bottom" constant="-86" id="uTt-4I-tWa"/>
+                                    <constraint firstItem="8DA-9N-bJg" firstAttribute="top" secondItem="272-nU-yyc" secondAttribute="bottom" constant="-86" id="xcw-ja-wjd"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="viewStyle">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startAngle">
+                                        <real key="value" value="135"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endAngle">
+                                        <real key="value" value="405"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="innerRingColor">
+                                        <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                        <color key="value" red="0.81568627449999997" green="0.81568627449999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level of sleep conditions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8t-jD-72a">
+                                <rect key="frame" x="30" y="54" width="240.5" height="26"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3O-pC-nln">
+                                <rect key="frame" x="30" y="80" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vg-HW-Xfi">
+                                <rect key="frame" x="29" y="297" width="77" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywv-bS-dXa">
+                                <rect key="frame" x="29" y="314" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xq4-N7-WI9">
+                                <rect key="frame" x="200.5" y="297" width="54.5" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xN-Cw-Y96">
+                                <rect key="frame" x="200.5" y="314" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Noise" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCA-bi-9DD">
+                                <rect key="frame" x="29" y="517.5" width="35" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEI-HS-pLD">
+                                <rect key="frame" x="29" y="534.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djB-2b-yYK">
+                                <rect key="frame" x="200.5" y="517" width="31" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsS-y0-Bub">
+                                <rect key="frame" x="200.5" y="534" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2627450980392157" green="0.42352941176470588" blue="0.59607843137254901" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lwB-Fd-c6S" firstAttribute="bottom" secondItem="RQp-zv-gVm" secondAttribute="bottom" id="1pZ-r5-Dxr"/>
+                            <constraint firstItem="c1z-Yw-FKE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="4KD-pO-fvz"/>
+                            <constraint firstItem="lwB-Fd-c6S" firstAttribute="width" secondItem="c1z-Yw-FKE" secondAttribute="width" id="4yw-Ge-K73"/>
+                            <constraint firstItem="RQp-zv-gVm" firstAttribute="leading" secondItem="KlG-u0-dK5" secondAttribute="leading" id="5lB-7j-jS4"/>
+                            <constraint firstItem="lwB-Fd-c6S" firstAttribute="height" secondItem="c1z-Yw-FKE" secondAttribute="height" id="9qU-Qp-jxK"/>
+                            <constraint firstItem="mCA-bi-9DD" firstAttribute="top" secondItem="zKj-XM-1d5" secondAttribute="bottom" constant="-12" id="Ahi-t5-Mkc"/>
+                            <constraint firstItem="xq4-N7-WI9" firstAttribute="leading" secondItem="Rll-0t-TSW" secondAttribute="leading" constant="8" id="CiS-rm-S9g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KlG-u0-dK5" secondAttribute="trailing" constant="8" id="DJo-72-s06"/>
+                            <constraint firstItem="hsS-y0-Bub" firstAttribute="leading" secondItem="djB-2b-yYK" secondAttribute="leading" id="Ejl-8I-aGl"/>
+                            <constraint firstItem="KlG-u0-dK5" firstAttribute="leading" secondItem="c1z-Yw-FKE" secondAttribute="trailing" constant="16" id="I9O-zY-ef1"/>
+                            <constraint firstItem="q3O-pC-nln" firstAttribute="leading" secondItem="P8t-jD-72a" secondAttribute="leading" id="IY9-Vq-ZhZ"/>
+                            <constraint firstItem="djB-2b-yYK" firstAttribute="top" secondItem="8DA-9N-bJg" secondAttribute="bottom" constant="-12" id="KpJ-wW-xrw"/>
+                            <constraint firstItem="KlG-u0-dK5" firstAttribute="bottom" secondItem="c1z-Yw-FKE" secondAttribute="bottom" id="Lei-mw-P7H"/>
+                            <constraint firstItem="KlG-u0-dK5" firstAttribute="top" secondItem="c1z-Yw-FKE" secondAttribute="top" id="OqY-kA-wxb"/>
+                            <constraint firstItem="ywv-bS-dXa" firstAttribute="top" secondItem="9vg-HW-Xfi" secondAttribute="bottom" id="RRF-5X-Loj"/>
+                            <constraint firstItem="9vg-HW-Xfi" firstAttribute="leading" secondItem="gB8-C6-omH" secondAttribute="leading" constant="8" id="SKP-cF-C3j"/>
+                            <constraint firstItem="mCA-bi-9DD" firstAttribute="leading" secondItem="zKj-XM-1d5" secondAttribute="leading" constant="8" id="UGJ-6x-d3N"/>
+                            <constraint firstItem="xq4-N7-WI9" firstAttribute="top" secondItem="Rll-0t-TSW" secondAttribute="bottom" constant="-12" id="UOd-96-VFV"/>
+                            <constraint firstItem="2xN-Cw-Y96" firstAttribute="leading" secondItem="xq4-N7-WI9" secondAttribute="leading" id="WlA-wA-CKa"/>
+                            <constraint firstItem="KlG-u0-dK5" firstAttribute="width" secondItem="c1z-Yw-FKE" secondAttribute="width" id="X8E-1o-Dt8"/>
+                            <constraint firstItem="P8t-jD-72a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="14" id="XuC-n4-E1L"/>
+                            <constraint firstItem="lwB-Fd-c6S" firstAttribute="top" secondItem="RQp-zv-gVm" secondAttribute="top" id="bqn-nW-mPf"/>
+                            <constraint firstItem="9vg-HW-Xfi" firstAttribute="top" secondItem="gB8-C6-omH" secondAttribute="bottom" constant="-12" id="lQg-Tn-gbD"/>
+                            <constraint firstItem="RQp-zv-gVm" firstAttribute="width" secondItem="c1z-Yw-FKE" secondAttribute="width" id="mA1-ZS-ElD"/>
+                            <constraint firstItem="q3O-pC-nln" firstAttribute="top" secondItem="P8t-jD-72a" secondAttribute="bottom" id="mJe-3f-875"/>
+                            <constraint firstItem="lwB-Fd-c6S" firstAttribute="leading" secondItem="c1z-Yw-FKE" secondAttribute="leading" id="ne6-Sd-2Pe"/>
+                            <constraint firstItem="ywv-bS-dXa" firstAttribute="leading" secondItem="9vg-HW-Xfi" secondAttribute="leading" id="noI-6l-Cl4"/>
+                            <constraint firstItem="hsS-y0-Bub" firstAttribute="top" secondItem="djB-2b-yYK" secondAttribute="bottom" id="rFL-VG-fNb"/>
+                            <constraint firstItem="hEI-HS-pLD" firstAttribute="leading" secondItem="mCA-bi-9DD" secondAttribute="leading" id="rWL-3N-jzg"/>
+                            <constraint firstItem="lwB-Fd-c6S" firstAttribute="trailing" secondItem="c1z-Yw-FKE" secondAttribute="trailing" id="riq-hT-I72"/>
+                            <constraint firstItem="djB-2b-yYK" firstAttribute="leading" secondItem="8DA-9N-bJg" secondAttribute="leading" constant="8" id="sH4-d5-q2E"/>
+                            <constraint firstItem="c1z-Yw-FKE" firstAttribute="top" secondItem="P8t-jD-72a" secondAttribute="bottom" constant="68" id="t7k-Lf-ze8"/>
+                            <constraint firstItem="2xN-Cw-Y96" firstAttribute="top" secondItem="xq4-N7-WI9" secondAttribute="bottom" id="twf-R6-Nek"/>
+                            <constraint firstItem="hEI-HS-pLD" firstAttribute="top" secondItem="mCA-bi-9DD" secondAttribute="bottom" id="u3h-gG-wIf"/>
+                            <constraint firstItem="zKj-XM-1d5" firstAttribute="top" secondItem="9vg-HW-Xfi" secondAttribute="bottom" constant="52.5" id="w7c-yq-E17"/>
+                            <constraint firstItem="P8t-jD-72a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="34" id="zI6-zr-zQA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currCondLabel" destination="q3O-pC-nln" id="Ccq-a7-Inr"/>
+                        <outlet property="humRing" destination="KlG-u0-dK5" id="wji-M2-edd"/>
+                        <outlet property="humidityCondLabel" destination="2xN-Cw-Y96" id="TyR-xo-6oX"/>
+                        <outlet property="lightCondLabel" destination="hsS-y0-Bub" id="QXh-bG-cE8"/>
+                        <outlet property="lightRing" destination="RQp-zv-gVm" id="cJw-rD-ank"/>
+                        <outlet property="noiseCondLabel" destination="hEI-HS-pLD" id="mVc-F3-JqZ"/>
+                        <outlet property="noiseRing" destination="lwB-Fd-c6S" id="LdN-mj-483"/>
+                        <outlet property="tempCondLabel" destination="ywv-bS-dXa" id="1yq-oY-Hrv"/>
+                        <outlet property="tempRing" destination="c1z-Yw-FKE" id="43p-eD-yJ8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="scale" width="139" height="140"/>
+    </resources>
 </document>
