@@ -65,21 +65,34 @@ class DataViewController: UIViewController, UICircularProgressRingDelegate, UIGe
                 destinationVC.startValue = conditions[0]
                 destinationVC.nums = [9, 25, 41]
                 destinationVC.name = "Temperature"
+                destinationVC.advices = ["Adjust your air conditioning according to sensor's indicator",
+                                         "You also can adjust your batteries' temperature",
+                                         "", ""]
+                destinationVC.titleText = "What you can do to improve conditions"
             case 13:
                 destinationVC.ringType = "hum"
                 destinationVC.startValue = conditions[1]
                 destinationVC.nums = [18, 50, 82]
                 destinationVC.name = "Humidity"
+                destinationVC.advices = ["Your could buy room humidifier room humidifier to improve room conditions",
+                                         "You can open a window for a while", "", ""]
+                destinationVC.titleText = "What you can do to improve conditions"
             case 14:
                 destinationVC.ringType = "noise"
                 destinationVC.startValue = conditions[2]
                 destinationVC.nums = [11, 32, 53]
                 destinationVC.name = "Noise"
+                destinationVC.advices = ["It could be too noisy outsidy, you'd better close your windows",
+                                         "Please, turn off your TV", "", ""]
+                destinationVC.titleText = "What you can do to improve conditions"
             case 15:
                 destinationVC.ringType = "light"
                 destinationVC.startValue = conditions[3]
                 destinationVC.nums = [3, 8, 13]
                 destinationVC.name = "Light"
+                destinationVC.advices = ["Check if any electronic devices are working nearby",
+                                         "You possibly left lights on in next room", "", ""]
+                destinationVC.titleText = "What you can do to improve conditions"
             default:
                 break
             }

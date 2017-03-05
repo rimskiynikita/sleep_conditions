@@ -28,14 +28,21 @@ class SeparateInfoViewController: UIViewController, UICircularProgressRingDelega
     var timer = Timer()
     var ringType: String!
     var startValue: Double!
+    var currValue: Double!
     var nums = [Int]()
     var name: String!
+    var shown: Bool?
+    var advices = [String]()
+    var titleText: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         infoRing.delegate = self
+        shown = false
+        titleLabel.text = titleText
         
+        currValue = startValue
         nameLabel.text = name + " conditions:"
         closeButton.isHidden = true
         titleLabel.isHidden = true
@@ -45,7 +52,7 @@ class SeparateInfoViewController: UIViewController, UICircularProgressRingDelega
         rightNum.text = String(nums[2])
         
         for constraint in advicesConstraints {
-            constraint.constant = -100
+            constraint.constant = -1000
             self.view.layoutIfNeeded()
         }
         
@@ -65,21 +72,91 @@ class SeparateInfoViewController: UIViewController, UICircularProgressRingDelega
             infoRing.setProgress(value: CGFloat(startValue), animationDuration: 1, completion: nil)
         }
         scheduledTimerWithTimeInterval()
+        nameLabels()
+    }
+    
+    func nameLabels() {
+        for i in 0...3 {
+            advicesLabels[i].text = advices[i]
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 2) {
-            self.closeButton.isHidden = false
-            self.titleLabel.isHidden = false
-            
-            var x: CGFloat = 21
-            for constraint in self.advicesConstraints {
-                constraint.constant += 100 + x
-                x += 10
-            }
-            
-            self.view.layoutIfNeeded()
+        
+        self.closeButton.isHidden = false
+
+        if !goodOrBad(value: currValue) {
+            showAdvice()
+            shown = true
+        } else {
+            hideAdvice()
+            shown = false
         }
+    }
+    
+    func showAdvice() {
+        self.titleLabel.isHidden = false
+        
+        var x: CGFloat = 21
+        var delay = 0.0
+        for constraint in self.advicesConstraints {
+            animateAdvice(duration: 1, delay: delay, constraint: constraint, value: x)
+            x += 10
+            delay += 0.5
+        }
+        shown = true
+    }
+    
+    func hideAdvice() {
+        self.titleLabel.isHidden = true
+        
+        let x: CGFloat = -2000
+        var delay = 0.0
+        for constraint in self.advicesConstraints {
+            animateAdvice(duration: 1, delay: delay, constraint: constraint, value: x)
+            delay += 0.5
+        }
+        shown = false
+    }
+    
+    func goodOrBad(value: Double) -> Bool {
+        var good = true
+        switch ringType {
+        case "light":
+            if value > 5 {
+                good = false
+            } else {
+                good = true
+            }
+        case "temp":
+            if (value < 24) || (value > 26) {
+                good = false
+            } else {
+                good = true
+            }
+        case "hum":
+            if (value < 45) || (value > 55) {
+                good = false
+            } else {
+                good = true
+            }
+        case "noise":
+            if (value < 30) || (value > 35) {
+                good = false
+            } else {
+                good = true
+            }
+        default:
+            good = true
+        }
+        return good
+    }
+    
+    func animateAdvice(duration: Double, delay: Double, constraint: NSLayoutConstraint, value: CGFloat) {
+        UIView.animate(withDuration: duration, delay: delay, options: .curveEaseIn, animations: { 
+            constraint.constant += 1000 + value
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func scheduledTimerWithTimeInterval(){
@@ -88,6 +165,7 @@ class SeparateInfoViewController: UIViewController, UICircularProgressRingDelega
     
     @IBAction func close(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        self.hideAdvice()
     }
     
     func getData() {
@@ -110,6 +188,12 @@ class SeparateInfoViewController: UIViewController, UICircularProgressRingDelega
                     self.updateData(response1: response1, response2: response2, response3: response3, response4: response4, ringType: self.ringType)
                 }
             }})
+        
+        if !goodOrBad(value: currValue) && !shown! {
+            showAdvice()
+        } else if goodOrBad(value: currValue) {
+            hideAdvice()
+        }
     }
     
     func updateData(response1: Double, response2: Double, response3: Double, response4: Double, ringType: String) {
@@ -131,6 +215,8 @@ class SeparateInfoViewController: UIViewController, UICircularProgressRingDelega
         default:
             break
         }
+        
+        self.currValue = infoValue
         
         if ringType != "light" {
                 UIView.animate(withDuration: 1.0, delay: 0.0, options: .transitionCrossDissolve, animations: {
