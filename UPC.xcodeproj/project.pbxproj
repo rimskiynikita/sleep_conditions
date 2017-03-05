@@ -28,6 +28,7 @@
 		E7A0FA261E6A036500E9A5C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A0FA241E6A036500E9A5C5 /* LaunchScreen.storyboard */; };
 		E7A0FA311E6A036500E9A5C5 /* UPCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0FA301E6A036500E9A5C5 /* UPCTests.swift */; };
 		E7A0FA3C1E6A036600E9A5C5 /* UPCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0FA3B1E6A036600E9A5C5 /* UPCUITests.swift */; };
+		E7E20C511E6B2DCF00B4901D /* SeparateInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E20C501E6B2DCF00B4901D /* SeparateInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		E7A0FA371E6A036600E9A5C5 /* UPCUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPCUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A0FA3B1E6A036600E9A5C5 /* UPCUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UPCUITests.swift; sourceTree = "<group>"; };
 		E7A0FA3D1E6A036600E9A5C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7E20C501E6B2DCF00B4901D /* SeparateInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparateInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				E79452311E6B021400665614 /* Extensions.swift */,
 				E79451571E6A0CE900665614 /* InternetManager.swift */,
 				E7A0FA1F1E6A036500E9A5C5 /* Main.storyboard */,
+				E7E20C501E6B2DCF00B4901D /* SeparateInfoViewController.swift */,
 				E7A0FA221E6A036500E9A5C5 /* Assets.xcassets */,
 				E7A0FA241E6A036500E9A5C5 /* LaunchScreen.storyboard */,
 				E794522B1E6A6BFA00665614 /* Fonts */,
@@ -492,6 +495,7 @@
 				E7A0FA1E1E6A036500E9A5C5 /* DataViewController.swift in Sources */,
 				E7A0FA1C1E6A036500E9A5C5 /* AppDelegate.swift in Sources */,
 				E79452321E6B021400665614 /* Extensions.swift in Sources */,
+				E7E20C511E6B2DCF00B4901D /* SeparateInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

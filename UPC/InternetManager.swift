@@ -14,7 +14,7 @@ class InternetManager {
     
     static let sharedInstance = InternetManager()
     
-    private let URL = "http://arduino.scherbakov.top/"
+    private let URL = "https://sleep-more.com/"
     private let getData = "get_data_for_ios/?id=2&fields=noise,temperature,humidity,light"
     
     func getTemper(completionHandler: @escaping (NSDictionary?, Error?) -> ()) {
